@@ -5,6 +5,7 @@ const path = require('path');
 const router = express.Router();
 const mysql = require('mysql2');
 const { render } = require('pug');
+const { log } = require('console');
 
 app.use(body_praser.urlencoded(extended=false));
 // for database connection
@@ -61,19 +62,43 @@ const projects = [
     }
   ];
   
-
+  var admin = false;
 router.get('/',(req,res)=>{
     res.status(200).render('index',{
-        page:"home",projects
+        page:"home",projects,admin
     })
 })
+
+// for Admin login
+
+router.get('/login',(req,res)=>{ 
+    res.status(200).render('login',{
+        page:"contacts",admin
+    })
+})
+
+router.post('/login',(req,res)=>{
+    console.log(req.body)
+    const{username,password}= req.body;
+    if(username == 'admin' && password == '12345'){
+        admin = true
+        res.redirect('/');
+    }
+    else{
+        res.status(200).render('login',{
+            page:"contacts",info:'User name and password invalid'
+        })
+
+    }   
+})
+
 
 router.get('/projects/:id',(req,res)=>{
     const pid=parseInt(req.params.id);
     const project = projects.find((p)=>p.id == pid); 
     if(project){
     res.render('project1',{
-        page:'projects',project
+        page:'projects',project,admin
     })
 }
 })
@@ -109,7 +134,7 @@ router.get('/contacts', async(req,res)=>{
             contacts:rows,page:'contacts'
         });
     } catch (error) {
-        console.error('Database error:', err);
+        console.error('Database error:', error);
         res.status(500).send('Internal Server Error');
     }
 

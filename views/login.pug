@@ -1,0 +1,16 @@
+extends layouts/base.pug
+
+block content
+    main
+        section#login
+            .login-container
+                h2 Admin Login
+                h2 #{info}
+                form(action="/login", method="post")
+                    label(for="username") Username:
+                    input(type="text", id="username", name="username", required=true)
+
+                    label(for="password") Password:
+                    input(type="password", id="password", name="password", required=true)
+
+                    button(type="submit" class="btn") Login

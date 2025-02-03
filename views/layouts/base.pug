@@ -23,7 +23,10 @@ html(lang="en")
           li
             a(class=page=='contact' ? 'active' : '', href="#contact") Contact
           li
-            a(class=page=='contacts' ? 'active' : '', href="/contacts") Contact_Data
+            if admin== true 
+              a(class=page=='contacts' ? 'active' : '', href="/contacts") Contact_Data
+            else
+              a(class=page=='contacts' ? 'active' : '', href="/login") Admin Login
           
 
     block content 
