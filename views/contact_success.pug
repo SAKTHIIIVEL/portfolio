@@ -1,0 +1,10 @@
+extends layouts/base.pug
+block content 
+    main 
+        section(class="section")
+            h1 Thank You! #{name} and your Email is #{email}
+            p Your message has been successfully sent. I will get back to you as soon as possible.
+            a(href="/" class="btn") Return to Home
+            br
+            a(href="/contacts" class="btn") Go to Contacts Page
+    

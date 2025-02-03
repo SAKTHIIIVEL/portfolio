@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Portfolio
+    link(rel="stylesheet", href="/css/styler.css")
+    script(src="/js/nav.js", defer)
+  body
+    header
+      nav
+        div.hamburger(onclick="toggleMenu()")
+          span
+          span
+          span
+        ul.nav-links
+          li
+            a(class=page=='home' ? 'active' : '', href="/") Home
+          li
+            a(class=page=='about' ? 'active' : '', href="#about") About
+          li
+            a(class=page=='projects' ? 'active' : '', href="#projects") Projects
+          li
+            a(class=page=='contact' ? 'active' : '', href="#contact") Contact
+          li
+            a(class=page=='contacts' ? 'active' : '', href="/contacts") Contact_Data
+          
+
+    block content 
+
+    footer
+      p &copy; 2025 My Portfolio

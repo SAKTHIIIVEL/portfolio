@@ -1,0 +1,35 @@
+extends layouts/base.pug
+
+block content
+  section#project-details
+    h1= project.title
+    if project.img_prj
+        each prj in project.img_prj 
+            img(src=prj, alt=`${project.title} image`, class="project-image")
+    h3= project.description
+
+    .project-details
+      h2 Key Features
+      ul
+        each feature in project.features
+          li= feature
+
+      h2 Technologies Used
+      ul
+        each tech in project.technologies
+          li= tech
+
+      if project.challenges
+        h2 Challenges Faced
+        p= project.challenges
+
+      if project.outcomes
+        h2 Outcomes
+        p= project.outcomes
+
+    .project-links
+      if project.link !='#'
+        a.btn(href=project.link, target="_blank") View Live Project
+
+    a.btn(href='/' class="btn") Return To Home
+      

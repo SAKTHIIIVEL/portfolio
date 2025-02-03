@@ -1,0 +1,42 @@
+extends layouts/base.pug
+
+block content
+  main
+    // Home Section
+    section#home
+      h1 Welcome to My Portfolio
+      p Hello! I'm a passionate web developer creating dynamic and responsive web applications.
+      a.btn(href="#projects") View My Projects
+      div.photo-container
+        img(src="/assets/my_profile.jpg", alt="Your Profile Picture")
+
+    // About Section
+    section#about
+      h2 About Me
+      p I am a skilled developer with a passion for coding and problem-solving. With expertise in front-end and back-end development, I build interactive and scalable applications.
+
+    // Projects Section
+    section#projects
+      h2 My Projects
+      .project-grid
+        each project in projects
+          .project-card
+            img(src=project.image, alt=`${project.title} Image`)
+            h3= project.title
+            p= project.description
+            a.btn(href=`/projects/${project.id}`, target="_self") View Project
+
+    // Contact Section
+    section#contact
+      h2 Contact Me
+      form(action="/contact", method="post")
+        label(for="name") Name:
+        input(type="text", id="name", name="name", required=true)
+        
+        label(for="email") Email:
+        input(type="email", id="email", name="email", required=true)
+        
+        label(for="message") Message:
+        textarea(id="message", name="message", required=true)
+        
+        button(type="submit", class="btn") Send
