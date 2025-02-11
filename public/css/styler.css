@@ -9,7 +9,10 @@ body {
   background-color: #121212;
   color: #ffffff;
 }
-
+.name{
+  color: #e68a00;
+  font-weight: bold;
+}
 header {
   background-color: #1e1e1e;
   padding: 1rem;
