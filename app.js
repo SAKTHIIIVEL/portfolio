@@ -42,7 +42,7 @@ const projects = [
       title: 'KFC Website Clone',
       description: 'A clone website of KFC built using Bubble.io. Includes home, menu, cart, and menu details pages.',
       image: '/assets/project2/project2.png',
-      link: '#',
+      link:  '#',
       img_prj:['/assets/project2/project2.png','/assets/project2/project2_login.png','/assets/project2/project2_signup.png','/assets/project2/project2_menu.png','/assets/project2/project2_menu_detail.png','/assets/project2/project2_success.png'],
       features:['This website got some responsive designs','The user can login as admin as well as customer','Securely storing the user\'s Data'],
       technologies:['Bubble.io is a platform used to create web application','Live databases are used'],
